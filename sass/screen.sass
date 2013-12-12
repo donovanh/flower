@@ -1,0 +1,175 @@
+/* Reset (a simplified version of Eric Meyer's reset)
+    http://meyerweb.com/eric/tools/css/reset/
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+
+/* Start the page styles
+
+$page-bg: rgba(50,100,250, 0.3)
+$petal-bg: #ffde00
+$leaf-bg: #333
+$text-colour: #333
+$shadow-colour: rgba(0,0,0,0.3)
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700)
+
+body
+  background: $page-bg
+  color: #fff
+  font-family: 'Open Sans Condensed', Helvetica, Sans-serif
+  text-align: center
+  line-height: 1
+
+h2, h3, p
+  color: $text-colour
+  font-weight: bold
+  padding: 0.25em 0 0.4em 0
+
+h2
+  font-size: 3em
+  padding-bottom: 0
+
+h3
+  font-size: 2em
+
+p
+  color: #fff
+  font-size: 0.75em
+
+.logo
+  position: relative
+  display: block
+  height: 14em
+  width: 14em
+  margin: 5em auto 4.25em
+  font-size: 22px
+  z-index: 10
+  transition: all 0.2s ease-out
+
+  .part
+    position: absolute
+    top: 50%
+    left: 50%
+
+    @for $i from 1 through 4 
+      &:nth-child(#{$i})
+        @extend .large-petal
+        background-color: $leaf-bg !important
+        opacity: 1 !important
+        transform: rotate(#{$i * 90 - 90}deg)
+        $distance: 2.72em
+        $blur: 4.54em
+        @if $i == 1
+          box-shadow: 0 $distance $blur rgba(0,0,0,0.3)
+        @if $i == 2
+          box-shadow: $distance 0 $blur rgba(0,0,0,0.3)
+        @if $i == 3
+          box-shadow: 0 0-$distance $blur rgba(0,0,0,0.3)
+        @if $i == 4
+          box-shadow: -$distance 0 $blur rgba(0,0,0,0.3)
+
+
+    @for $i from 5 through 12 
+      &:nth-child(#{$i})
+        @extend .small-petal
+        background-color: $petal-bg !important
+        transform: rotate(#{($i - 4) * 45 - 45}deg)
+
+.small-petal
+  background: $petal-bg
+  position: absolute
+  top: 50%
+  left: 50%
+  display: block
+  height: 6em
+  width: 6em
+  opacity: 0.7
+  border-radius: 100% 0
+  margin-top: -6em
+  margin-left: 0em
+  transform-origin: 0 100% 0
+
+.large-petal
+  height: 10em
+  width: 10em
+  margin: -10em 0 0
+  border-radius: 100% 0
+  background: $leaf-bg
+  opacity: 0.6
+  transform-origin: 0 100% 0
+
+#background
+  perspective: 1000px
+  transform-style: preserve-3d
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  height: 40em
+
+.cloud
+  display: block
+  background: #fff
+  border-radius: 2em
+  height: 4em
+  opacity: 0.8
+  position: absolute
+  left: 50%
+  width: 16em
+  box-shadow: 0 0 3em 2em #fff
+
+  &:before
+    content: ""
+    background: #fff
+    border-radius: 50%
+    display: block
+    position: absolute
+    height: 4em
+    width: 4em
+    top: -3em
+    left: 1em
+    box-shadow: 0 0 3em 2em #fff
+
+  &:after
+    content: ""
+    background: #fff
+    border-radius: 50%
+    display: block
+    position: absolute
+    height: 8em
+    width: 8em
+    top: -5em
+    right: 1em
+    box-shadow: 0 0 3em 2em #fff
+
+  &:nth-child(1)
+    top: 12em
+    margin-left: -50%
+    transform: translate3d(0,0, 15em)
+
+  &:nth-child(2)
+    top: 16em
+    margin-left: -40%
+    transform: translate3d(0,0, -30em)
+
+  &:nth-child(3)
+    top: 20em
+    margin-left: 30%
+    transform: translate3d(0,0, 5em)
+
+  &:nth-child(4)
+    top: 6em
+    margin-left: 0
+    transform: translate3d(0,0, -25em)
+
+  &:nth-child(5)
+    top: 5em
+    margin-left: 80%
+    transform: translate3d(0,0, 5em)
+  

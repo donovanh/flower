@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Flower in CSS</title>
+    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <!--<script src="js/modernizr.js"></script>-->
+  </head>
+  <body>
+    <section id="background"></section>
+    <section class="logo">
+      <section id="flower"></section>
+    </section>
+
+    <h2>A stylised flower made with CSS</h3>
+
+    <section class="content">
+      
+    </section>
+
+    <script type="text/javascript">
+
+      for (i = 0;i<12;i++) {
+        var part = document.createElement("span");
+        part.className = 'part';
+        document.getElementById('flower').appendChild(part);
+      }
+
+      // Generate some clouds
+      // Todo: Generate random characteristics and animate
+      for (i = 0;i<5;i++) {
+        var part = document.createElement("span");
+        part.className = 'cloud';
+        document.getElementById('background').appendChild(part);
+      }
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3481417-23']);
+    _gaq.push(['_setDomainName', 'hop.ie']);
+    _gaq.push(['_setSiteSpeedSampleRate', 10]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+
+  </body>
+</html>
